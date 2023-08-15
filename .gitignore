@@ -1,2 +1,3 @@
+# Python GITIGNORE (NPM handles git files for frontend)
 venv/**
 **/__pycache__/**

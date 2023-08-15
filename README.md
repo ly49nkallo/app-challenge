@@ -10,39 +10,52 @@ Authors: Ty Brennan and Thomas Catalan
 
 ```(bash)
 python -m venv venv
-source venv/bin/activate
+```
+
+Then activate your environment (`source venv/Scripts/activate` for Windows or `source venv/bin/activate` for Linux) and execute the following to instasl python libraries.
+
+```(bash)
 pip install -rf requirements.txt
 ```
 
 ### (2) Install Node.js
 
-![image](./nodejs.png)
+![image](assets/nodejs.png)
 
 [Here](https://nodejs.org/en) is a link to the official website.
 
-### (3) Install Dependency
+### (3) Install Dependency(s)
 
 ```(bash)
 npm install axios --save
+npm i -S @react-google-maps/api
 ```
 
-## Deploy Development Server
+### (4) Get API key
 
-### Option 1: Execute Bash Shell File
-
-Note: you must have bash installed on your system
+Go to console.cloud.google.com and get a key. I forgot how. Then make a file in frontend called `.env` and add this line:
 
 ```(bash)
-./run.sh
+REACT_APP_APIKEY=<<YOUR API KEY GOES HERE>>
 ```
 
-or
+## Deploy Development Server on Local Machine
+
+### Option 1: Just run frontend components (not compiled)
+
+While in `frontend` directory, execute
 
 ```(bash)
-bash ./run.sh
+npm start
 ```
 
-### Option 2: Manual
+### Option 2: Run full stack (Backend + Frontend)
 
-Go to ./run/sh and execute the commands manually in the order they appear
-in the file.
+While in project directory, execute
+
+```(bash)
+npm run build
+flask run
+```
+
+> Note: If there is an error, check if you are in the correct python environment.
