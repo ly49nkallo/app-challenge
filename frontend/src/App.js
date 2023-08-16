@@ -43,6 +43,12 @@ const center = {
   lng: -38.523
 };
 
+const los_angeles = {
+  lat: 34.0522,
+  lng: -118.2437
+}
+const geffen_academy = {lat: 34.05941430346768, lng: -118.44698498965822}
+
 function App() {
   const APIKEY = process.env.REACT_APP_APIKEY
   const { isLoaded } = useJsApiLoader({
@@ -55,7 +61,7 @@ function App() {
 
   const onLoad = React.useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
+    const bounds = new window.google.maps.LatLngBounds(geffen_academy);
     map.fitBounds(bounds);
 
     setMap(map)
@@ -75,7 +81,7 @@ function App() {
        <div className="App-header">
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
+        center={geffen_academy}
         zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
